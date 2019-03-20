@@ -54,29 +54,29 @@ mixin sidebar()
 										a.main-sidebar__link(href="#")= val1.list
 		.sidebar-item
 			ul.quicklinks
-				li.quicklink__item.disable quicklinks
+				li.quicklink__item.disable quick links
 				li.quicklink__item 
-					a.quicklink__link teamoverview
+					a.quicklink__link(href="#") team overview
 				li.quicklink__item 
-					a.quicklink__link project
+					a.quicklink__link(href="#") project
 				li.quicklink__item 
-					a.quicklink__link single task
+					a.quicklink__link(href="#") single task
 				li.quicklink__item 
-					a.quicklink__link kanban board
+					a.quicklink__link(href="#") kanban board
 		.sidebar-item
 			form.form-control(action="#")
 				.form-input__group
 					button.btn.btn-search(type="button")
 						i.fas.fa-search
-				input.form-control__input(type="text",placehoder="Search")
-				button.btn.btn-select.js-btn-select
+					input.form-control__input(type="text",placehoder="Search")
+				button.btn.btn-select.js-btn-select add new
 				ul.dropdown
 					li.dropdown__item
-						a.dropdown__link team
+						a.dropdown__link(href="#") team
 					li.dropdown__item
-						a.dropdown__link project
+						a.dropdown__link(href="#") project
 					li.dropdown__item
-						a.dropdown__link task
+						a.dropdown__link(href="#") task
 			.admin
 				a.admin-media(href="#")
 					img.admin-media__img(src="app/img/avatar-male-4.jpg" alt="")
