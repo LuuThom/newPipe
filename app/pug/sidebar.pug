@@ -5,6 +5,7 @@
 		},
 		{
 			item: "pages",
+			icon: "fas fa-caret-down",
 			submenu: [
 				{
 					list: "app pages"
@@ -19,6 +20,7 @@
 		},
 		{
 			item: "component",
+			icon: "fas fa-caret-down",
 			submenu: [
 				{
 					list: "bootstrap"
@@ -39,20 +41,23 @@
 mixin sidebar()
 	.sidebar 
 		.sidebar-item
-			a.logo-page(href="#")
-				h1
-					img.logo-page__img(src="app/img/logo.svg")
-		.sidebar-item
-			ul.mainsidebar
+			.logo
+				a.logo-page(href="#")
+					h1
+						img.logo-page__img(src="app/img/logo.svg")
+			button.navbar-toggler
+				span.navbar-toggler-icon
+					i.fas.fa-bars
+		.navbar-main
+			ul.main-sidebar
 				each val in sidebar
 					li.main-sidebar__item
 						a.main-sidebar__link.js-sidebarlink(href="#")= val.item
 						if val.submenu
 							ul.sub-menu.js-submenu
 								each val1 in val.submenu
-									li.main-sidebaar__item
+									li.main-sidebar__item
 										a.main-sidebar__link(href="#")= val1.list
-		.sidebar-item
 			ul.quicklinks
 				li.quicklink__item.disable quick links
 				li.quicklink__item 
@@ -63,14 +68,13 @@ mixin sidebar()
 					a.quicklink__link(href="#") single task
 				li.quicklink__item 
 					a.quicklink__link(href="#") kanban board
-		.sidebar-item
 			form.form-control(action="#")
 				.form-input__group
 					button.btn.btn-search(type="button")
 						i.fas.fa-search
-					input.form-control__input(type="text",placehoder="Search")
+					input.form-control__input(type="text",placeholder="Search")
 				button.btn.btn-select.js-btn-select add new
-				ul.dropdown
+				ul.dropdown.js-dropdown--btn
 					li.dropdown__item
 						a.dropdown__link(href="#") team
 					li.dropdown__item
@@ -78,9 +82,9 @@ mixin sidebar()
 					li.dropdown__item
 						a.dropdown__link(href="#") task
 			.admin
-				a.admin-media(href="#")
+				a.admin-media.js-admin(href="#")
 					img.admin-media__img(src="app/img/avatar-male-4.jpg" alt="")
-				ul.dropdown-menu
+				ul.dropdown-menu.js-dropdown--menu
 					li.dropdown-menu__item
 						a.dropdown-menu__link(href="#") profile
 					li.dropdown-menu__item
