@@ -83,12 +83,12 @@ mixin sidebar()
 						a.dropdown__link(href="#") task
 			.admin
 				a.admin-media.js-admin(href="#")
-					img.admin-media__img(src="app/img/avatar-male-4.jpg" alt="")
-				ul.dropdown-menu.js-dropdown--menu
-					li.dropdown-menu__item
-						a.dropdown-menu__link(href="#") profile
-					li.dropdown-menu__item
-						a.dropdown-menu__link(href="#") account settings
-					li.dropdown-menu__item
-						a.dropdown-menu__link(href="#") log out
+				#menu
+					ul.dropdown-menu.js-dropdown--menu
+						li.dropdown-menu__item
+							a.dropdown-menu__link(href="#") profile
+						li.dropdown-menu__item
+							a.dropdown-menu__link(href="#") account settings
+						li.dropdown-menu__item
+							a.dropdown-menu__link(href="#") log out
 +sidebar()

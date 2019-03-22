@@ -12,7 +12,6 @@ a {
   cursor: pointer;
 }
 %icon {
-  // display: inline-block;
   opacity: .5;
   width: 0;
   height: 0;
@@ -24,7 +23,7 @@ a {
   border-bottom: 0;
   border-left: 0.3em solid transparent;
 }
-.material-icons {
+%material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -54,56 +53,6 @@ a {
     display: none;
   }
 }
-
-%style__h3 {
-  font-weight: 500;
-  line-height: 1.2;
-  color: #212529;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem; 
-}
-%dropdown {
-  position: absolute;
-  z-index: 1000;
-  display: none;
-  min-width: 10rem;
-  padding:0.5rem 0.8rem 0.5rem 0;
-  margin: 0.125rem 0 0;
-  font-size: 1rem;
-  text-align: left;
-  list-style: none;
-  background-color: #fff;
-  border: 1px solid #E9EEF2;
-  border-radius: 0.5rem;
-}
-%dropdown__link {
-  display: block;
-  width: 80%;
-  margin: auto;
-  padding: 0.25rem 0.5rem;
-  clear: both;
-  color: #007bff;
-  text-align: inherit;
-  white-space: nowrap;
-  background-color: transparent;
-  border: 0;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  text-transform: capitalize;
-  font-family: Medium;
-  cursor: pointer;
-  &:active {
-    color: #fff;
-    text-decoration: none;
-    background-color: #007bff;
-  }
-  &:hover,
-  &:focus {
-    color: #006fe6;
-    text-decoration: none;
-    background-color: #EEF2F5;
-  }
-}
 %link {
   color: #007bff;
   text-decoration: none;
@@ -113,34 +62,35 @@ a {
   text-transform: capitalize;
   cursor: pointer;
 }
+.projec-pages,
+.modular-component,
+.flexible-layouts,
+.familiar-tooling {
+  &__content {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-family: $font-family;
+    color: #6c757d;
+  }
+  &__icons {
+    margin-top: 4.5rem;
+    @extend %material-icons;
+  }
+  &__title { 
+    margin-top: 4.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #212529;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    display: inline-block;
+    margin-left: 1.5rem;
+    font-family: $font-family;
+    @include responsive($SM) {
+      font-size: 2.95rem;
+  }
 
-$font-family: -apple-system,
-BlinkMacSystemFont,
-"Inter UI",
-"Segoe UI",
-Roboto,
-"Helvetica Neue",
-Arial,
-sans-serif,
-"Apple Color Emoji",
-"Segoe UI Emoji",
-"Segoe UI Symbol";
-.content {
-  margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-  font-weight: 400;
-  font-family: $font-family;
-  color: #6c757d;
-}
-.title {
-  font-weight: 500;
-  line-height: 1.2;
-  color: #212529;
-  margin-bottom: 1.5rem;
-  font-size: 2.5rem;
-  display: inline-block;
-  margin-left: 1.5rem;
-  font-family: $font-family;
 }
 .dropdown__list {
   list-style: none;
@@ -159,6 +109,7 @@ sans-serif,
   }
 }
 .section-main {
+  background-color: #F7F9FA;
   width: calc(100% - 264px);
   overflow: hidden;
   flex: 1;
@@ -169,11 +120,11 @@ sans-serif,
       max-width: 75%;
       padding-top: 4.5rem;
       margin: auto;
-      .review {
+      .project-template {
         padding-bottom: 4.5rem;
-        .symbol {
+        &__symbol {
           position: relative;
-          .avatar.avatar-lg {
+          .avatar{
             width: 4.5rem;
             height: 4.5rem;
             border-radius: 50%;
@@ -182,7 +133,7 @@ sans-serif,
             color: #fff;
             margin-right: 0.375rem !important;
           }
-          .badge.badge-success {
+          .badge{
             position: absolute;
             display: inline-block;
             padding: 0.25em 0.4em;
@@ -237,23 +188,22 @@ sans-serif,
           }
         }
       }
-      .management {
+      .projec-pages {
         margin-top: 4.5rem;
-        .carousel{
+        .projec-pages__carousel{
           margin-bottom: 4.5rem; 
           @extend %carousel;
         }
-        .title {
+        &__title {
           display: inline-block;
           margin-left: 1.5rem; 
           font-family: $font-family;
-          @extend %style__h3;
         }
       }
-      .modular {
+      .modular-component {
         margin-top: 4.5rem;
-        @extend %carousel;
-        .carousel.side {
+        .carousel {
+          @extend %carousel;
           width: 100%;
           display: flex;
           justify-content: space-evenly;
@@ -264,33 +214,38 @@ sans-serif,
           }
         }
       }
-      .flex__desc {
-        margin-top: 4.5rem;
-        display: flex;
-        .col-4 {
-          padding-left: 12px;
-          padding-right: 12px;
-          img.img-fluid {
-            max-width: 100%;
-            border-radius: .75rem;
-            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.07) !important;
+      .flexible-layouts{
+        margin-bottom: 4.5rem;
+        .flexible-layouts__desc {
+          margin-top: 4.5rem;
+          display: flex;
+          .col-4 {
+            padding-left: 12px;
+            padding-right: 12px;
+            img.img-fluid {
+              max-width: 100%;
+              border-radius: .75rem;
+              box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.07) !important;
+            }
           }
         }
       }
-      .familiar__desc {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        // margin-top: 4.5rem;
-        .col-3 {
-          max-width: 25%;
-          padding-left: 12px;
-          padding-right: 12px;
-          flex: 1;
-          img.img-fluid {
-            width: 100%;
-            box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.07) !important;
-            border-radius: 0.25rem !important;
+      .familiar-tooling{
+        margin-bottom: 4.5rem;
+        .familiar-tooling__desc {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          .col-3 {
+            max-width: 25%;
+            padding-left: 12px;
+            padding-right: 12px;
+            flex: 1;
+            img.img-fluid {
+              width: 100%;
+              box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.07) !important;
+              border-radius: 0.25rem !important;
+            }
           }
         }
       }
@@ -300,10 +255,10 @@ sans-serif,
 .link-shortcut a {
   @extend %link;
 }
-.intro {
-  margin-top: 4.5rem;
-  margin-bottom: 4.5rem;
-}
+// .intro {
+//   margin-top: 4.5rem;
+//   margin-bottom: 4.5rem;
+// }
 .dropdown__item{
   &:after {
     @extend %icon;
