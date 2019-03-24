@@ -8,7 +8,7 @@
 				h2.project-template__title A project management template for Bootstrap 4
 				p.project-template__content Pipeline is a collection of modular components and layouts for building project management and collaboration web apps.
 				.project-template__shortlink
-					ul.dropdown__list
+					ul.dropdown
 						li.dropdown__item
 							a.dropdown__link.js-showmenu(href="javascript:;") explore pages
 							ul.dropdown__child.js-submenu
@@ -23,21 +23,21 @@
 									a.dropdown__link(href="#") bootstrap components
 								li
 									a.dropdown__link(href="#") pipeline components
-			.projec-pages
-				.projec-pages__carousel
+			.project-pages
+				.project-pages__carousel
 					.carousel__item.js-slider1
 						a(href="#"): img.img-fluid(src="app/img/nav-side-team.png")
 					each val in ["app/img/nav-side-team.png","app/img/nav-side-project.png","app/img/nav-side-task.png","app/img/nav-side-kanban-board.png","app/img/nav-side-chat.png","app/img/nav-side-user.png"]
 						.carousel__item.disable.js-slider1
 							a(href="#"): img.img-fluid(src= val)
-					i.projec-pages__icons supervised_user_circle
-					h3.projec-pages__title.Project Management Pages
-					p.projec-pages__content Pipeline makes building project management interfaces simple with pages for teams, projects, tasks, kanban boards and more.
-					ul.dropdown__list
-						li.dropdown__item
-							a.dropdown__link(href="#") app pages
-						li.dropdown__item
-							a.dropdown__link(href="#") utility pages		
+				i.project-pages__icons supervised_user_circle
+				h3.project-pages__title.Project Management Pages
+				p.project-pages__content Pipeline makes building project management interfaces simple with pages for teams, projects, tasks, kanban boards and more.
+				ul.dropdown
+					li.dropdown__item
+						a.dropdown__link(href="#") app pages
+					li.dropdown__item
+						a.dropdown__link(href="#") utility pages		
 			.modular-component
 				.modular-component__carousel
 					.carousel.side
@@ -56,7 +56,7 @@
 				i.modular-component__icons widgets
 				h3.modular-component__title Modular Components
 				p.modular-component__content Build feature-rich pages with everything Bootstrap 4.1.3 has to offer and extend functionality with Pipeline's suite of stylish custom components.
-				ul.dropdown__list
+				ul.dropdown
 					li.dropdown__item
 						a.dropdown__link(href="#") pipeline component
 					li.dropdown__item

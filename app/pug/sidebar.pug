@@ -1,94 +1,95 @@
 -
-	var sidebar = [
-		{
-			item: "overview",
-		},
-		{
-			item: "pages",
-			icon: "fas fa-caret-down",
-			submenu: [
-				{
-					list: "app pages"
-				},
-				{
-					list: "utility pages"
-				},
-				{
-					list: "layouts"
-				},
-			]
-		},
-		{
-			item: "component",
-			icon: "fas fa-caret-down",
-			submenu: [
-				{
-					list: "bootstrap"
-				},
-				{
-					list: "pipeline"
-				},
-			]
-		},
-		{
-			item: "documentation",
-		},
-		{
-			item: "changelog",
-		},
-	];
+ var sidebar = [
+  {
+   item: "overview",
+  },
+  {
+   item: "pages",
+   icon: "fas fa-caret-down",
+   submenu: [
+    {
+     list: "app pages"
+    },
+    {
+     list: "utility pages"
+    },
+    {
+     list: "layouts"
+    },
+    ]
+  },
+  {
+   item: "component",
+   icon: "fas fa-caret-down",
+   submenu: [
+    {
+     list: "bootstrap"
+    },
+    {
+     list: "pipeline"
+    },
+    ]
+  },
+  {
+   item: "documentation"
+  },
+  {
+   item: "changelog"
+  },
+ ];
 
 mixin sidebar()
-	.sidebar 
-		.sidebar-item
-			.logo
-				a.logo-page(href="#")
-					h1
-						img.logo-page__img(src="app/img/logo.svg")
-			button.navbar-toggler
-				span.navbar-toggler-icon
-					i.fas.fa-bars
-		.navbar-main
-			ul.main-sidebar
-				each val in sidebar
-					li.main-sidebar__item
-						a.main-sidebar__link.js-sidebarlink(href="#")= val.item
-						if val.submenu
-							ul.sub-menu.js-submenu
-								each val1 in val.submenu
-									li.main-sidebar__item
-										a.main-sidebar__link(href="#")= val1.list
-			ul.quicklinks
-				li.quicklink__item.disable quick links
-				li.quicklink__item 
-					a.quicklink__link(href="#") team overview
-				li.quicklink__item 
-					a.quicklink__link(href="#") project
-				li.quicklink__item 
-					a.quicklink__link(href="#") single task
-				li.quicklink__item 
-					a.quicklink__link(href="#") kanban board
-			form.form-control(action="#")
-				.form-input__group
-					button.btn.btn-search(type="button")
-						i.fas.fa-search
-					input.form-control__input(type="text",placeholder="Search")
-				button.btn.btn-select.js-btn-select add new
-				ul.dropdown.js-dropdown--btn
-					li.dropdown__item
-						a.dropdown__link(href="#") team
-					li.dropdown__item
-						a.dropdown__link(href="#") project
-					li.dropdown__item
-						a.dropdown__link(href="#") task
-			.admin
-				a.admin-media.js-admin(href="#")
-				#menu
-					ul.dropdown-menu.js-dropdown--menu
-						li.dropdown-menu__item
-							a.dropdown-menu__link(href="#") profile
-						li.dropdown-menu__item
-							a.dropdown-menu__link(href="#") account settings
-						li.dropdown-menu__item
-							a.dropdown-menu__link(href="#") log out
+ .sidebar
+  .logo
+   h1
+    a.logo__page(href="#")
+     img(src="app/img/logo.svg")
+  .navbar-main.js-main-sidebar
+   ul.main-sidebar
+    each val in sidebar
+     li.main-sidebar__item
+      a.main-sidebar__link.js-sidebarlink(href="#")= val.item
+       if val.submenu
+        span.icon
+         i.fas.fa-caret-right
+      if val.submenu
+       ul.sub-menu.js-submenu
+        each val1 in val.submenu
+         li.main-sidebar__item
+          a.main-sidebar__link(href="#")= val1.list
+   ul.quicklinks
+    li.quicklink__item.disable quick links
+    li.quicklink__item 
+     a.quicklink__link(href="#") team overview
+    li.quicklink__item 
+     a.quicklink__link(href="#") project
+    li.quicklink__item 
+     a.quicklink__link(href="#") single task
+    li.quicklink__item 
+     a.quicklink__link(href="#") kanban board
+   form.form-control(action="#")
+    .form-control__group
+     button.btn.btn-search(type="button")
+      i.fas.fa-search
+     input.form-control__input(type="text",placeholder="Search")
+    button.btn.btn-select.js-btn-select add new
+    ul.dropdown.js-dropdown--btn
+     li.dropdown__item
+      a.dropdown__link(href="#") team
+     li.dropdown__item
+      a.dropdown__link(href="#") project
+     li.dropdown__item
+      a.dropdown__link(href="#") task
+  .admin
+   button.navbar-toggler.js-navbar-toggle
+    i.navbar-toggler-icon.fas.fa-bars
+   a.admin-media.js-admin(href="#")
+   ul.dropdown-menu.js-dropdown--menu
+    li.dropdown-menu__item
+     a.dropdown-menu__link(href="#") profile
+    li.dropdown-menu__item
+     a.dropdown-menu__link(href="#") account settings
+    li.dropdown-menu__item
+     a.dropdown-menu__link(href="#") log out
+.layer
 +sidebar()

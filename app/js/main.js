@@ -1,17 +1,9 @@
 $(document).ready(function () {
+  var width = parseInt($(window).width());
   $('.js-sidebarlink').on('click', function (myfunction) {
-    myfunction.preventDefault();
-    var $this = $(this);
-    if ($this.next().hasClass('show')) {
-      $this.next().removeClass('show');
-      $this.next().slideUp(350);
-    }
-    else {
-      $this.parent().parent().find('.js-submenu').removeClass('show');
-      $this.parent().parent().find('.js-submenu').slideUp(350);
-      $this.next().toggleClass('show');
-      $this.next().slideToggle();
-    }
+    var sub =  $(this).next(".js-submenu");
+    sub.toggle();
+    $("i",this).toggleClass("fa-caret-right fa-caret-down");
   });
   
   $(".js-showmenu").on('click', function () {
@@ -38,31 +30,39 @@ $(document).ready(function () {
     if (!e.target.matches(".js-btn-select") && (!e.target.matches(".js-dropdown--btn"))) {
       $(".js-dropdown--btn").hide();
     }
-    var container = $("#menu .js-dropdown--menu");
+    var container = $(".js-dropdown--menu");
     if (!e.target.matches(".js-admin")) {
       if (!container.is(e.target) && container.has(e.target).length === 0) {
         container.hide();
       }
     }
   });
-
-  function slide(element) {
-    var index = 0;
-    carousel();
-    function carousel() {
-      var i;
-      var x = document.getElementsByClassName(element);
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      index++;
-      if (index > x.length) { index = 1 }
-      x[index - 1].style.display = "block";
-      setTimeout(carousel, 3000);
+  ///responsive sidebar
+////////hide sidebar when click out sidebar
+  $(".section-main").on('click',function(){
+    if ($(this).css('opacity') == 0.3 ) {
+      $('.section-main').animate({left:0,opacity: '1'});
+      $('.navbar-main').animate({left: size});
     }
+  });
+  if(width <= 991) {
+    var slideControl = 0;
+    var menuSize = 264;
+    var size = -272;
+    $(document).ready(function(){
+      $('.navbar-main').css({width: menuSize});
+    });
+    $('.js-navbar-toggle').on('click',function(){
+      if(slideControl < 1){
+        $('.section-main').animate({left: menuSize,opacity: '0.3'});
+        $('.navbar-main').animate({left: 0});
+        slideControl = 1;
+      }
+      else {
+        $('.section-main').animate({left:0,opacity: '1'});
+        $('.navbar-main').animate({left: size});
+        slideControl = 0;
+      }
+    });
   }
-  slide("js-slider1");
-  slide("js-slider2");
-  slide("js-slider3");
-  
 });

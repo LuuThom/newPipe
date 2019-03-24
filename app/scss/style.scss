@@ -28,6 +28,10 @@ sans-serif,
 "Apple Color Emoji",
 "Segoe UI Emoji",
 "Segoe UI Symbol";
+* {
+  margin: 0;
+  padding: 0;
+}
 
 $XS:     767px;   
 $SM:     991px;  
@@ -59,7 +63,6 @@ $XL:   1170px;
 	margin: auto;
 	padding: 0.25rem 0.5rem;
 	clear: both;
-	font-weight: 400;
 	color: #007bff;
 	text-align: inherit;
 	white-space: nowrap;
@@ -68,9 +71,9 @@ $XL:   1170px;
 	border-radius: 0.25rem;
 	font-weight: 500;
 	text-decoration: none;
-	font-size: 1rem;
+	font-size: 0.875rem;
 	text-transform: capitalize;
-	font-family: Medium;
+	font-family: $font-family;
 	cursor: pointer;
 	&:active {
 		color: #fff;
@@ -84,13 +87,13 @@ $XL:   1170px;
 		background-color: #EEF2F5;
 	}
 }
-* {
-  margin: 0;
-  padding: 0;
-}
 
 .container {
   display: flex;
+  @include responsive($SM){
+    display: block;
+    position: relative;
+  }
 }
 
 .sidebar {
@@ -110,12 +113,12 @@ $XL:   1170px;
   &::-webkit-scrollbar {
     display: none;
   }
-  .sidebar-item {
+  .logo {
     align-items: flex-start;
     width: 100%;
     flex-shrink: 0;
     padding-bottom: 1.5rem;
-    .logo-page {
+    .logo__page {
       display: inline-block;
       padding-top: 0.3125rem;
       padding-bottom: 0.3125rem;
@@ -143,11 +146,14 @@ $XL:   1170px;
         line-height: 1.5rem;
         cursor: pointer;
         font-family: $font-family;
+        .icon {
+          float: right;
+          transition: all .5s;
+        }
       }
       &__item {
         list-style: none;
         position: relative;
-        
         .sub-menu {
           display: none;
           list-style: none; 
@@ -171,7 +177,6 @@ $XL:   1170px;
           top: 1rem;
           color: rgba(255, 255, 255, 0.9);
         }
-        
       }
       
     }
@@ -216,7 +221,7 @@ $XL:   1170px;
     .form-control {
       position: relative;
       margin-top: 1.5rem;
-      .form-input__group {
+      .form-control__group {
         margin-top: -2rem;
         margin-bottom: 1rem;
         .form-control__input {
@@ -238,7 +243,7 @@ $XL:   1170px;
           }
         }
       }
-      .btn.btn-search {
+      .btn.btn-search{
         display: inline-block;
         color: #fff;
         border-radius: 10rem 0 0 10rem;
@@ -251,6 +256,7 @@ $XL:   1170px;
         color: rgba(255, 255, 255, 0.5);
         border-right: none;
         padding-left: 1rem;
+        cursor: pointer;
       }
       
       input::placeholder {
@@ -291,10 +297,28 @@ $XL:   1170px;
           border-color: #0062cc;
         }
       }
+      .dropdown__item{
+        &::after{
+          display: none !important;
+        }
+      }
+      @include responsive($SM) {
+        margin-top: 1.5rem;
+        .form-control__group {
+          margin-top: 0;
+          .btn.btn-search {
+            top: 0;
+            left: 1rem;
+          }
+          .form-control__input {
+            margin-left: -1rem;
+          }
+        }
+      }
     }
   }
   .dropdown {
-    top: 10rem;
+    top: 7rem;
     left: 0;
     float: left;
     color: #6c757d;
@@ -309,8 +333,8 @@ $XL:   1170px;
     .admin-media {
       display: inline-block;
       background: url(../img/avatar-male-4.jpg) center no-repeat;
-      width: 30px;
-      height: 30px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       border: none;
       background-size: cover;
@@ -331,15 +355,61 @@ $XL:   1170px;
     display: none;
   }
   @include responsive($SM) {
-    .navbar-toggle {
-      display: block;
+    max-width: 100%;
+    padding: 0.25rem 1.5rem;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: visible;
+    .logo {
+      width: 70%;
+      padding-bottom: 0;
+      &__page {
+        padding-bottom: 0;
+        margin: 0 !important;
+      }
     }
-    .quicklinks,.mainsidebar,.form-control,.admin {
-      display: none;
+    .navbar-main {
+      background: #343a40;
+      position: absolute;
+      left:-272px;
+      height: auto;
+      top: 3.7rem;
+      overflow-y: auto;
+      z-index: 10;
+      padding-top: 1.5rem;
+      padding-left: .5rem;
     }
-    // .quicklinks {
-    //   display: none;
-    // }
+    .admin {
+      width: 30%;
+      display: flex;
+      justify-content: flex-end;
+      .admin-media {
+        margin-left: 0.75rem;
+      }
+      .navbar-toggler {
+        display: block;
+        cursor: pointer;
+        background: none;
+        color: rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.1);
+        padding: 0.25rem 0.75rem;
+        font-size: 1.25rem;
+        line-height: 1;
+        background-color: transparent;
+        border-radius: 0.25rem;
+      }
+      .dropdown-menu {
+        left: 7rem;
+        right: 0;
+        bottom: -6.5rem;
+        font-size: 0.875rem;
+        &__link {
+          font-size: 0.875rem;
+        }
+      }
+    }
   }
 }
 .form-control {
@@ -347,6 +417,21 @@ $XL:   1170px;
     .dropdown__item{
       &::after{
         display: none !important;
+      }
+    }
+  }
+  @include responsive($SM) {
+    .form-control {
+      margin-top: 1.5rem;
+      .form-control__group {
+        margin-top: 0;
+        .btn {
+          top: 0;
+          left: 1rem;
+        }
+        .form-control__input {
+          margin-left: -1rem;
+        }
       }
     }
   }
