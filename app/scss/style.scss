@@ -211,6 +211,7 @@ $XL:   1170px;
         line-height: 1.5rem;
         cursor: pointer;
         transition: all .2s;
+        font-family: $font-family;
         &:hover {
           transition: all .2s;
           color: rgba(255, 255, 255, 0.9);
