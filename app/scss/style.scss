@@ -242,6 +242,7 @@ $XL:   1170px;
         transition: all 0.15s;
         color: #fff;
         font-size: 0.875rem;
+        box-sizing: border-box;
         &:focus {
           background: rgba(255, 255, 255, 0.1);
           border: 1px solid;
@@ -310,6 +311,10 @@ $XL:   1170px;
     .dropdown__item{
       &::after{
         display: none !important;
+      }
+      .dropdown__link {
+        font-size: 0.875rem;
+        font-weight: 600;
       }
     }
     @include responsive($SM) {
