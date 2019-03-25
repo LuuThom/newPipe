@@ -31,6 +31,7 @@ sans-serif,
 * {
   margin: 0;
   padding: 0;
+  font-family: $font-family;
 }
 
 $XS:     767px;   
@@ -69,7 +70,7 @@ $XL:   1170px;
 	background-color: transparent;
 	border: 0;
 	border-radius: 0.25rem;
-	font-weight: 500;
+	font-weight: 600;
 	text-decoration: none;
 	font-size: 0.875rem;
 	text-transform: capitalize;
@@ -84,7 +85,8 @@ $XL:   1170px;
 	&:focus {
 		color: #006fe6;
 		text-decoration: none;
-		background-color: #EEF2F5;
+    background-color: #EEF2F5;
+    transition: all .5s;
 	}
 }
 
@@ -102,6 +104,7 @@ $XL:   1170px;
   box-sizing: border-box;
   padding-left: 1.5rem;
   padding-top: 1.5rem;
+  padding-right: 1.5rem;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -137,7 +140,7 @@ $XL:   1170px;
       text-decoration: none;
       color: rgba(255, 255, 255, 0.9);
       display: block;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0rem;
       font-size: 1rem;
       text-transform: capitalize;
       font-weight: 500;
@@ -163,7 +166,7 @@ $XL:   1170px;
           color: rgba(255, 255, 255, 0.65);
           transition: all .1s;
           font-size: .875rem;
-          font-family: $font-family;
+          font-family: inherit;
           padding-top: 0;
           padding-bottom: 0;
           &:hover {
@@ -194,8 +197,10 @@ $XL:   1170px;
     .disable {
       font-size: 0.875rem;
       color: rgba(255, 255, 255, 0.5) !important;
-      padding-left: 1rem;
+      padding-left: 0rem;
       letter-spacing: .85px;
+      font-family: inherit;
+      margin-bottom: 0.875rem;
     }
     .quicklink__item {
       line-height: 1.3125rem;
@@ -204,14 +209,14 @@ $XL:   1170px;
         text-decoration: none;
         color: rgba(255, 255, 255, 0.65);
         display: block;
-        padding: 0.5rem 1rem;
+        padding: 0.2rem 0rem;
         font-size: 0.875rem;
         text-transform: capitalize;
         font-weight: 500;
         line-height: 1.5rem;
         cursor: pointer;
         transition: all .2s;
-        font-family: $font-family;
+        font-family: inherit;
         &:hover {
           transition: all .2s;
           color: rgba(255, 255, 255, 0.9);
@@ -272,7 +277,7 @@ $XL:   1170px;
       background-color: #007bff;
       border-color: #007bff;
       cursor: pointer;
-      width: 90%;
+      width: 100%;
       border: none;
       text-transform: capitalize;
       font-size: 1rem;
@@ -280,7 +285,7 @@ $XL:   1170px;
       border-radius: 0.25rem;
       transition: all 0.15s;
       margin-bottom: 1.5rem !important;
-      margin: auto;
+      outline: none;
       &::after {
         display: inline-block;
         width: 0;
@@ -299,6 +304,7 @@ $XL:   1170px;
         color: #fff;
         background-color: #0069d9;
         border-color: #0062cc;
+        transition: all .5s;
       }
     }
     .dropdown__item{
