@@ -311,6 +311,8 @@
   border-right: none;
   padding-left: 1rem;
   cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .sidebar .form-control input::-webkit-input-placeholder {

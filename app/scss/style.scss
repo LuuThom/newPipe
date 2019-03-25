@@ -266,6 +266,7 @@ $XL:   1170px;
       border-right: none;
       padding-left: 1rem;
       cursor: pointer;
+      box-sizing: border-box;
     }
     
     input::placeholder {
