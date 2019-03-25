@@ -95,7 +95,6 @@ $XL:   1170px;
     position: relative;
   }
 }
-
 .sidebar {
   max-width: 264px;
   background-color: #343a40;
@@ -129,15 +128,81 @@ $XL:   1170px;
       margin-bottom: 1.3rem;
     }
   }
-  .navbar-main{
-    .main-sidebar {
-      display: flex;
-      flex-direction: column;
+  .main-sidebar {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-bottom:  1.5rem;
+    &__link {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.9);
+      display: block;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      text-transform: capitalize;
+      font-weight: 500;
+      line-height: 1.5rem;
+      cursor: pointer;
+      font-family: $font-family;
+      .icon {
+        float: right;
+        transition: all .5s;
+      }
+    }
+    &__item {
       list-style: none;
-      margin-bottom:  1.5rem;
-      &__link {
-        text-decoration: none;
+      position: relative;
+      line-height: 1.7;
+      .sub-menu {
+        display: none;
+        list-style: none; 
+        .show {
+          display: block;
+        }
+        .main-sidebar__link {
+          color: rgba(255, 255, 255, 0.65);
+          transition: all .1s;
+          font-size: .875rem;
+          font-family: $font-family;
+          padding-top: 0;
+          padding-bottom: 0;
+          &:hover {
+            color: rgba(255, 255, 255, 0.9);
+            transition: all .1s;
+          }
+        }
+      }
+      .main-sidebar__icon {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
         color: rgba(255, 255, 255, 0.9);
+      }
+    }
+  }
+  .quicklinks {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1.25rem 0rem 1.25rem;
+    margin-right: 2rem;
+    margin-bottom: 0;
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .disable {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5) !important;
+      padding-left: 1rem;
+      letter-spacing: .85px;
+    }
+    .quicklink__item {
+      line-height: 1.3125rem;
+      text-transform: capitalize;
+      .quicklink__link {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.65);
         display: block;
         padding: 0.5rem 1rem;
         font-size: 1rem;
@@ -145,174 +210,111 @@ $XL:   1170px;
         font-weight: 500;
         line-height: 1.5rem;
         cursor: pointer;
-        font-family: $font-family;
-        .icon {
-          float: right;
-          transition: all .5s;
-        }
-      }
-      &__item {
-        list-style: none;
-        position: relative;
-        .sub-menu {
-          display: none;
-          list-style: none; 
-          .show {
-            display: block;
-          }
-          .main-sidebar__link {
-            color: rgba(255, 255, 255, 0.65);
-            transition: all .1s;
-            font-size: .875rem;
-            font-family: $font-family;
-            &:hover {
-              color: rgba(255, 255, 255, 0.9);
-              transition: all .1s;
-            }
-          }
-        }
-        .main-sidebar__icon {
-          position: absolute;
-          right: 1rem;
-          top: 1rem;
+        transition: all .2s;
+        &:hover {
+          transition: all .2s;
           color: rgba(255, 255, 255, 0.9);
         }
       }
-      
     }
-    .quicklinks {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      box-sizing: border-box;
-      padding: 1.25rem 0rem 1.25rem;
-      margin-right: 2rem;
-      margin-bottom: 0;
-      list-style: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      .disable {
+  }
+  .form-control {
+    position: relative;
+    margin-top: 1.5rem;
+    .form-control__group {
+      margin-top: -2rem;
+      margin-bottom: 1rem;
+      .form-control__input {
+        display: inline-block;
+        border-radius: 10rem 10rem 10rem 10rem;
+        border-left: none;
+        padding-left: 2.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0);
+        color: #000;
+        height: calc(2.125rem + 2px);
+        transition: all 0.15s;
+        color: #fff;
         font-size: 0.875rem;
-        color: rgba(255, 255, 255, 0.5) !important;
-        padding-left: 1rem;
-        letter-spacing: .85px;
-      }
-      .quicklink__item {
-        line-height: 1.3125rem;
-        text-transform: capitalize;
-        .quicklink__link {
-          text-decoration: none;
-          color: rgba(255, 255, 255, 0.65);
-          display: block;
-          padding: 0.5rem 1rem;
-          font-size: 1rem;
-          text-transform: capitalize;
-          font-weight: 500;
-          line-height: 1.5rem;
-          cursor: pointer;
-          transition: all .2s;
-          &:hover {
-            transition: all .2s;
-            color: rgba(255, 255, 255, 0.9);
-          }
+        &:focus {
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid;
+          border-color: #99caff;
+          color: #fff;
+          outline: none;
         }
       }
     }
-    .form-control {
+    .btn.btn-search{
+      display: inline-block;
+      color: #fff;
+      border-radius: 10rem 0 0 10rem;
+      background: rgba(255, 255, 255, 0);
+      border-color: rgba(255, 255, 255, 0);
       position: relative;
+      top: 1.9rem;
+      left: 0rem;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5);
+      border-right: none;
+      padding-left: 1rem;
+      cursor: pointer;
+    }
+    
+    input::placeholder {
+      color: #a6a9ab;
+    }
+    .btn.btn-select{
+      padding: 10px 0;
+      display: block;
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff;
+      cursor: pointer;
+      width: 90%;
+      border: none;
+      text-transform: capitalize;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.25rem;
+      transition: all 0.15s;
+      margin-bottom: 1.5rem;
+      margin: auto;
+      &::after {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 0.255em;
+        vertical-align: 0.255em;
+        content: "";
+        border-top: 0.3em solid;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0;
+        border-left: 0.3em solid transparent;
+        opacity: .5;
+        transform: scaleX(0.8);
+      }
+      &:hover {
+        color: #fff;
+        background-color: #0069d9;
+        border-color: #0062cc;
+      }
+    }
+    .dropdown__item{
+      &::after{
+        display: none !important;
+      }
+    }
+    @include responsive($SM) {
       margin-top: 1.5rem;
       .form-control__group {
-        margin-top: -2rem;
-        margin-bottom: 1rem;
+        margin-top: 0;
+        .btn.btn-search {
+          top: 0;
+          left: 1rem;
+        }
         .form-control__input {
-          display: inline-block;
-          border-radius: 10rem 10rem 10rem 10rem;
-          border-left: none;
-          padding-left: 2.5rem;
-          background: rgba(255, 255, 255, 0.1);
-          border-color: rgba(255, 255, 255, 0);
-          color: #000;
-          height: calc(2.125rem + 2px);
-          transition: all 0.15s;
-          color: #fff;
-          font-size: 0.875rem;
-          &:focus {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0);
-            color: #fff;
-          }
-        }
-      }
-      .btn.btn-search{
-        display: inline-block;
-        color: #fff;
-        border-radius: 10rem 0 0 10rem;
-        background: rgba(255, 255, 255, 0);
-        border-color: rgba(255, 255, 255, 0);
-        position: relative;
-        top: 1.9rem;
-        left: 0rem;
-        font-size: 0.875rem;
-        color: rgba(255, 255, 255, 0.5);
-        border-right: none;
-        padding-left: 1rem;
-        cursor: pointer;
-      }
-      
-      input::placeholder {
-        color: #a6a9ab;
-      }
-      .btn.btn-select{
-        padding: 10px 0;
-        display: block;
-        color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
-        cursor: pointer;
-        width: 90%;
-        border: none;
-        text-transform: capitalize;
-        font-size: 1rem;
-        font-weight: 600;
-        border-radius: 0.25rem;
-        transition: all 0.15s;
-        margin-bottom: 1.5rem;
-        &::after {
-          display: inline-block;
-          width: 0;
-          height: 0;
-          margin-left: 0.255em;
-          vertical-align: 0.255em;
-          content: "";
-          border-top: 0.3em solid;
-          border-right: 0.3em solid transparent;
-          border-bottom: 0;
-          border-left: 0.3em solid transparent;
-          opacity: .5;
-          transform: scaleX(0.8);
-        }
-        &:hover {
-          color: #fff;
-          background-color: #0069d9;
-          border-color: #0062cc;
-        }
-      }
-      .dropdown__item{
-        &::after{
-          display: none !important;
-        }
-      }
-      @include responsive($SM) {
-        margin-top: 1.5rem;
-        .form-control__group {
-          margin-top: 0;
-          .btn.btn-search {
-            top: 0;
-            left: 1rem;
-          }
-          .form-control__input {
-            margin-left: -1rem;
-          }
+          margin-left: -1rem;
         }
       }
     }
@@ -353,15 +355,21 @@ $XL:   1170px;
   }
   .navbar-toggler {
     display: none;
+    cursor: pointer;
   }
   @include responsive($SM) {
+    position: fixed;
     max-width: 100%;
+    width: 100%;
     padding: 0.25rem 1.5rem;
-    height: auto;
+    height: 55px;
+    padding: 0.25rem 1.5rem;
+    height: 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     overflow: visible;
+    box-sizing: border-box;
     .logo {
       width: 70%;
       padding-bottom: 0;
@@ -372,14 +380,16 @@ $XL:   1170px;
     }
     .navbar-main {
       background: #343a40;
-      position: absolute;
+      position: fixed;
+      width: 264px;
       left:-272px;
       height: auto;
-      top: 3.7rem;
+      top: 55px;
       overflow-y: auto;
       z-index: 10;
       padding-top: 1.5rem;
       padding-left: .5rem;
+      padding-bottom: 1rem;
     }
     .admin {
       width: 30%;
@@ -399,6 +409,7 @@ $XL:   1170px;
         line-height: 1;
         background-color: transparent;
         border-radius: 0.25rem;
+        outline: none;
       }
       .dropdown-menu {
         left: 7rem;
@@ -425,6 +436,8 @@ $XL:   1170px;
       margin-top: 1.5rem;
       .form-control__group {
         margin-top: 0;
+        margin-left: 0rem;
+        margin-right: 1rem;
         .btn {
           top: 0;
           left: 1rem;

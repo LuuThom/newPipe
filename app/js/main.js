@@ -2,7 +2,7 @@ $(document).ready(function () {
   var width = parseInt($(window).width());
   $('.js-sidebarlink').on('click', function (myfunction) {
     var sub =  $(this).next(".js-submenu");
-    sub.toggle();
+    sub.slideToggle();
     $("i",this).toggleClass("fa-caret-right fa-caret-down");
   });
   
@@ -39,28 +39,25 @@ $(document).ready(function () {
   });
   ///responsive sidebar
 ////////hide sidebar when click out sidebar
-  $(".section-main").on('click',function(){
+  $(".js-section-main").on('click',function(){
     if ($(this).css('opacity') == 0.3 ) {
-      $('.section-main').animate({left:0,opacity: '1'});
-      $('.navbar-main').animate({left: size});
+      $('.js-section-main').animate({left:0,opacity: '1'});
+      $('.js-navbar-main').animate({left: size});
     }
   });
   if(width <= 991) {
     var slideControl = 0;
     var menuSize = 264;
     var size = -272;
-    $(document).ready(function(){
-      $('.navbar-main').css({width: menuSize});
-    });
     $('.js-navbar-toggle').on('click',function(){
       if(slideControl < 1){
-        $('.section-main').animate({left: menuSize,opacity: '0.3'});
-        $('.navbar-main').animate({left: 0});
+        $('.js-section-main').animate({opacity: '0.3'});
+        $('.js-navbar-main').animate({left: 0});
         slideControl = 1;
       }
       else {
-        $('.section-main').animate({left:0,opacity: '1'});
-        $('.navbar-main').animate({left: size});
+        $('.js-section-main').animate({opacity: '1'});
+        $('.js-navbar-main').animate({left: size});
         slideControl = 0;
       }
     });
